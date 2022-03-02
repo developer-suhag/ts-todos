@@ -34,6 +34,10 @@ const Home = () => {
 
   const addTodo = useCallback(() => {
     if (todoRef.current) {
+      if (todoRef.current.value === "") {
+        alert("Please add some text");
+        return;
+      }
       dispatch({
         type: "ADD",
         text: todoRef.current.value,
